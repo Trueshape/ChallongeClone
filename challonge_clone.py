@@ -24,7 +24,7 @@ import uuid
 import webview
 
 # >>> CHALLONGE_DATA_START >>>
-DATA_JSON = "{\"tournaments\": {}, \"__window__\": {\"width\": 900, \"height\": 913, \"x\": 674, \"y\": 174}}"
+DATA_JSON = "{\"tournaments\": {}, \"__window__\": {\"width\": 900, \"height\": 913, \"x\": 258, \"y\": 207}}"
 # <<< CHALLONGE_DATA_END <<<
 
 _lock = threading.Lock()

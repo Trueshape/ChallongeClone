@@ -55,8 +55,18 @@ if not !errorlevel!==0 (
     )
 )
 
-"!PYCMD!" "%~dp0challonge_clone.py" %*
-if not !errorlevel!==0 pause
+set "PYWEXE="
+set "PYDIR_FILE=%TEMP%\challongeclone_pydir.txt"
+"!PYCMD!" -c "import os,sys;print(os.path.dirname(sys.executable))" > "!PYDIR_FILE!" 2>nul
+set /p PYDIR=<"!PYDIR_FILE!"
+del "!PYDIR_FILE!" >nul 2>nul
+if exist "!PYDIR!\pythonw.exe" set "PYWEXE=!PYDIR!\pythonw.exe"
+
+if defined PYWEXE (
+    start "" "!PYWEXE!" "%~dp0challonge_clone.py" %*
+) else (
+    start "" "!PYCMD!" "%~dp0challonge_clone.py" %*
+)
 exit /b
 
 :install_python
